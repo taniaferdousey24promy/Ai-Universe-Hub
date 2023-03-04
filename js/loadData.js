@@ -52,8 +52,13 @@ const eachAiAssistants = assistantDatas => {
                             </div>
 
                             <div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                    
 
-                                <button class="rounded-circle border-0 "><i class="fa-solid fa-arrow-right"></i></button>
+                                
 
                             </div>
 
@@ -115,8 +120,12 @@ const eachAiAssistants = assistantDatas => {
                             </div>
 
                             <div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
 
-                                <button class="rounded-circle border-0 "><i class="fa-solid fa-arrow-right"></i></button>
+                                
 
                             </div>
 
@@ -161,7 +170,7 @@ const eachAiAssistants = assistantDatas => {
 loadData();
 
 
-//-----------------spinner
+//-----------------spinner------
 const spinnerWrapperEl = document.querySelector('.spinner-wrapper');
 
 window.addEventListener('load',() => {
@@ -175,3 +184,4 @@ window.addEventListener('load',() => {
 
 
 })
+
