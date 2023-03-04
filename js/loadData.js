@@ -199,19 +199,86 @@ const modalOpens = gettingDataByaIds =>{
     document.getElementById('modal-body').innerHTML=
 
     `
+    
     <div class ="d-flex justify-content-evenly  ">
-    <div class=" m-2 card" style="width: 30rem;">
+
+    <div class=" m-2 card border-danger rounded-4 bg-danger-subtle" style="width: 30rem;">
     <div class="card-body">
-      <h5 class="card-title">${gettingDataByaIds.data.description}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title text-center">${gettingDataByaIds.data.description}</h5>
+        <div class="d-flex justify-content-evenly text-center m-2 mt-5">
+
+            <div class="bg-body rounded-4 fw-normal  " style="width: 25%"">
+
+                <p class="text-success fw-bolder .fs-4 text m-2 mt-4">${gettingDataByaIds.data.pricing[0].price}</p>
+                <p  class="text-success fw-bolder .fs-4 text ">${gettingDataByaIds.data.pricing[0].plan}</p>
+
+
+                
+
+             </div>
+
+  
+            <div class="bg-body rounded-4" style="width: 25%">
+                <p class="text-danger-emphasis fw-bolder .fs-4 text  m-2 mt-4">${gettingDataByaIds.data.pricing[1].price}</p>  
+                <p class="text-danger-emphasis fw-bolder .fs-4 text ">${gettingDataByaIds.data.pricing[1].plan}</p>
+
+            </div>
+  
+            <div class="bg-body rounded-4" style="width: 25%">
+                <p class="text-danger fw-semibold .fs-5 text  m-2 mt-4">${gettingDataByaIds.data.pricing[2].price}</p>
+                <p class="text-danger fw-semibold .fs-5 text">${gettingDataByaIds.data.pricing[2].plan}</p>
+
+    
+  
+            </div>
+
+        </div>
+
+        <div class="d-flex mt-5">
+
+            <div>
+                <h5 class="text-center">Features</h5>
+
+                <ul>
+                    <li>${gettingDataByaIds.data.features[1].feature_name}</li>
+                    <li>${gettingDataByaIds.data.features[2].feature_name}</li>
+                    <li>${gettingDataByaIds.data.features[3].feature_name}</li>
+                    
+                </ul>
+
+            </div>
+  
+            <div>
+                <h5 class="text-center">Integrations</h5>
+                <ul>
+                
+                    <li>${gettingDataByaIds.data.integrations[0]}</li>
+                    <li>${gettingDataByaIds.data.integrations[0]}</li>
+                    <li>${gettingDataByaIds.data.integrations[0]}</li>
+
+                </ul>
+  
+            </div>
+  
+        </div>
+
     </div>
     </div>
 
-    <div class="m-2 card" style="width: 30rem;">
-    <img src="${gettingDataByaIds.data.image_link[0]}" class="card-img-top" alt="...">
+    <div class="m-2 card rounded-4" style="width: 30rem;">
+
+    <div style="position: relative; z-index: 1;">
+        <img src="${gettingDataByaIds.data.image_link[0]}" class="card-img-top" alt="...">
+
+    </div>
+    <div style="position: relative; z-index: 0;" >
+        <p>${gettingDataByaIds.data.accuracy.score}</p>
+
+    </div>
+
     <div class="card-body">
-        <h5 class="card-title">${gettingDataByaIds.data.input_output_examples[0].input}</h5>
-        <p class="card-text">${gettingDataByaIds.data.input_output_examples[0].output}</p>
+        <h5 class="card-title text-center">${gettingDataByaIds.data.input_output_examples[0].input}</h5>
+        <p class="card-text text-center">${gettingDataByaIds.data.input_output_examples[0].output}</p>
     </div>
     </div>
 
@@ -231,3 +298,5 @@ const modalOpens = gettingDataByaIds =>{
 
 
 loadData();
+
+
