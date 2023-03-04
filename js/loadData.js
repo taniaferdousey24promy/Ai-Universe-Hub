@@ -267,19 +267,27 @@ const modalOpens = gettingDataByaIds =>{
 
     <div class="m-2 card rounded-4" style="width: 30rem;">
 
-    <div style="position: relative; z-index: 1;">
-        <img src="${gettingDataByaIds.data.image_link[0]}" class="card-img-top" alt="...">
+        <div style="position: relative;">
+            <img src="${gettingDataByaIds.data.image_link[0]}" class="card-img-top" alt="..." style="z-index: -1;">
+            <p class="mt-2 me-3 rounded-pill p-2 text-white bg-danger" style="z-index: 2; position: absolute; top: 0; right: 0;">${gettingDataByaIds.data.accuracy.score} accuracy </p>
+        </div>
+  
 
-    </div>
-    <div style="position: relative; z-index: 0;" >
-        <p>${gettingDataByaIds.data.accuracy.score}</p>
 
-    </div>
 
-    <div class="card-body">
-        <h5 class="card-title text-center">${gettingDataByaIds.data.input_output_examples[0].input}</h5>
-        <p class="card-text text-center">${gettingDataByaIds.data.input_output_examples[0].output}</p>
-    </div>
+        <div>
+            <div class="card-body">
+                <h5 class="card-title text-center">${gettingDataByaIds.data.input_output_examples[0].input}</h5>
+                <p class="card-text text-center">${gettingDataByaIds.data.input_output_examples[0].output}</p>
+            </div>
+
+        </div>
+
+
+
+
+
+
     </div>
 
 
