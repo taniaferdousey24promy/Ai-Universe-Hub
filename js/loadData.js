@@ -50,17 +50,19 @@ const eachAiAssistants = assistantDatas => {
                                 ${assistantData.published_in}
 
                             </div>
+                            <!-- Button trigger modal -->
+                            <button onclick="modalReceivesData(${assistantData.id})" type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                                
 
-                            <div>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
+                            
+                                
                     
 
                                 
 
-                            </div>
+                            
 
                         </div>
 
@@ -119,15 +121,17 @@ const eachAiAssistants = assistantDatas => {
 
                             </div>
 
-                            <div>
-                                <!-- Button trigger modal -->
-                                <button type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
+                            <!-- Button trigger modal -->
+                            <button onclick="modalReceivesData(${assistantData.id})" type="button" class="rounded-circle border-0" data-bs-toggle="modal" data-bs-target="#modal-ai-details">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                            
+                                
 
                                 
 
-                            </div>
+                            
 
                         </div>
 
@@ -155,19 +159,11 @@ const eachAiAssistants = assistantDatas => {
 
 }
 
-// const seeMoreButton = document.getElementById('see-more-button');
-// seeMoreButton.addEventListener('click', function(){
-
-//     eachAiAssistantsSeeMore();
 
 
 
 
-// })
 
-
-
-loadData();
 
 
 //-----------------spinner------
@@ -185,3 +181,53 @@ window.addEventListener('load',() => {
 
 })
 
+// we added onclick on arrow buttons in this js folder using modalReceivesData function
+
+const modalReceivesData = idAi =>{
+    // console.log(idAi);
+    const url = `https://openapi.programming-hero.com/api/ai/tool/0${idAi}`;
+    // console.log(url);
+    fetch(url)
+    .then(res => res.json())
+    .then(allLdata => modalOpens(allLdata));
+
+}
+
+const modalOpens = gettingDataByaIds =>{
+    // console.log(gettingDataByaIds.data.accuracy);
+    document.getElementById('exampleModalLabel').innerText = gettingDataByaIds.data.tool_name;
+    document.getElementById('modal-body').innerHTML=
+
+    `
+    <div class ="d-flex justify-content-evenly  ">
+    <div class=" m-2 card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">${gettingDataByaIds.data.description}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    </div>
+
+    <div class="m-2 card" style="width: 30rem;">
+    <img src="${gettingDataByaIds.data.image_link[0]}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">${gettingDataByaIds.data.input_output_examples[0].input}</h5>
+        <p class="card-text">${gettingDataByaIds.data.input_output_examples[0].output}</p>
+    </div>
+    </div>
+
+
+    
+    </div>
+
+    
+
+    `
+
+    
+
+
+}
+    
+
+
+loadData();
